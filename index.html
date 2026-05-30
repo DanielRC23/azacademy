@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Az Academy México</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f4;
+      color: #133f73;
+      overflow-x: hidden;
+    }
+
+    .bg-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(19,63,115,0.12), transparent 70%);
+      top: -200px;
+      right: -150px;
+      z-index: -1;
+      filter: blur(40px);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #f57c00;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, #f57c00, #ff9a2f);
+      border: none;
+      padding: 12px 18px;
+      border-radius: 14px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(19,63,115,0.08);
+      border: 1px solid rgba(19,63,115,0.08);
+      padding: 10px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      font-size: .9rem;
+      color: #133f73;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -3px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero p {
+      margin-top: 24px;
+      color: #5d6d7e;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      margin-top: 36px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border: 1px solid rgba(19,63,115,0.12);
+      background: white;
+      color: #133f73;
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: white;
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 32px;
+      letter-spacing: -1px;
+    }
+
+    .categories {
+      padding: 60px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid rgba(19,63,115,0.08);
+      padding: 24px;
+      border-radius: 24px;
+      transition: .3s;
+      backdrop-filter: blur(12px);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(245,124,0,0.35);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #5d6d7e;
+      line-height: 1.6;
+      font-size: .95rem;
+    }
+
+    .pdfs {
+      padding: 50px 0 90px;
+    }
+
+    .pdf-card {
+      background: white;
+      border: 1px solid rgba(19,63,115,0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .pdf-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pdf-image {
+      height: 180px;
+      background: linear-gradient(135deg, #133f73, #1d5ea8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    .pdf-content {
+      padding: 24px;
+    }
+
+    .price {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price strong {
+      font-size: 1.3rem;
+    }
+
+    .buy-btn {
+      background: #f57c00;
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .buy-btn:hover {
+      opacity: .9;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #5d6d7e;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: 50px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <div class="container">
+
+    <nav>
+      <div class="logo">Az <span>Academy</span></div>
+      <button class="nav-btn">Ver catálogo</button>
+    </nav>
+
+    <section class="hero">
+      <div class="badge">Aprende habilidades útiles y reales</div>
+
+      <h1>
+        Aprende cosas útiles que sí puedes aplicar.
+      </h1>
+
+      <p>
+        Guías prácticas y fáciles de entender sobre oficios, cocina, negocios y habilidades para empezar desde cero.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#pdfs" class="primary-btn">Ver PDFs</a>
+        <a href="#" class="secondary-btn">Todos los PDFs</a>
+      </div>
+    </section>
+
+    <section class="categories">
+      <h2 class="section-title">Temas populares</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Electricidad</h3>
+          <p>Instalaciones básicas, contactos, apagadores y reparación residencial.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🔧</div>
+          <h3>Plomería</h3>
+          <p>Aprende fugas, llaves, tuberías y mantenimiento básico del hogar.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🍣</div>
+          <h3>Cocina & Makis</h3>
+          <p>Recetas, costeo y cómo vender comida desde casa.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🕯️</div>
+          <h3>Velas aromáticas</h3>
+          <p>Crea productos artesanales premium y aprende a venderlos.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="pdfs" id="pdfs">
+      <h2 class="section-title">Guías destacadas</h2>
+
+      <div class="grid">
+
+        <div class="pdf-card">
+          <div class="pdf-image">⚡</div>
+          <div class="pdf-content">
+            <h3>Electricidad Residencial Básica</h3>
+            <p>Aprende instalaciones y reparaciones simples desde cero.</p>
+
+            <div class="price">
+              <strong>$89 MXN</strong>
+              <a href="#" class="buy-btn">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-card">
+          <div class="pdf-image">🍸</div>
+          <div class="pdf-content">
+            <h3>Bartender Desde Cero</h3>
+            <p>Cocteles básicos, herramientas y preparación profesional.</p>
+
+            <div class="price">
+              <strong>$89 MXN</strong>
+              <a href="#" class="buy-btn">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-card">
+          <div class="pdf-image">🔩</div>
+          <div class="pdf-content">
+            <h3>Soldadura para Principiantes</h3>
+            <p>Conoce el equipo, técnicas básicas y seguridad.</p>
+
+            <div class="price">
+              <strong>$89 MXN</strong>
+              <a href="#" class="buy-btn">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Az Academy — Aprende habilidades reales.
+    </footer>
+
+  </div>
+
+</body>
+</html>
